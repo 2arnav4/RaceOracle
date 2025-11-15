@@ -2,8 +2,7 @@ from typing import List, Dict, Any
 import math
 import random
 import time
-
-from backend.models import AgentState, SimulationState
+from ..models import AgentState, SimulationState # <-- FIX APPLIED HERE
 
 from .agents import SimpleRuleBasedAgent
 from .aggressive_driver import AggressiveDriverAgent
