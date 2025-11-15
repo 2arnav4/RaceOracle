@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  --bg-main: #0d0f14;
+  --bg-panel: rgba(255, 255, 255, 0.06);
+  --accent-primary: #00FFD1;
+  --accent-warning: #FFB400;
+  --text-primary: #ffffff;
+  --text-secondary: #9aa1b1;
+  --border-light: rgba(255, 255, 255, 0.12);
+
+  /* spacing & radii */
+  --space-xs: 6px;
+  --space-sm: 12px;
+  --space-md: 18px;
+  --space-lg: 28px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+
+  /* shadows & glows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --glow-primary: 0 0 12px rgba(0, 255, 209, 0.3);
+  --glow-warning: 0 0 12px rgba(255, 180, 0, 0.3);
+}

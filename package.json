@@ -1,0 +1,67 @@
+{
+  "name": "race-oracle",
+  "productName": "Race Oracle",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "main": "public/main.js",
+  "homepage": "./",
+  "scripts": {
+    "dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "dev:vite": "vite",
+    "electron": "electron .",
+    "build": "vite build",
+    "build:electron": "npm run build && electron-builder",
+    "preview": "vite preview",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "lucide-react": "^0.344.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "concurrently": "^8.2.2",
+    "electron": "^39.2.0",
+    "electron-builder": "^26.0.12",
+    "electron-is-dev": "^3.0.1",
+    "vite": "^5.1.0",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "com.raceoracle.app",
+    "productName": "Race Oracle",
+    "directories": {
+      "buildResources": "public"
+    },
+    "files": [
+      "dist/**/*",
+      "public/main.js",
+      "public/preload.js"
+    ],
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.utilities",
+      "icon": "public/icon.png"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "public/icon.png"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "icon": "public/icon.png"
+    }
+  }
+}
