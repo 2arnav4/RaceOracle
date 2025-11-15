@@ -83,3 +83,9 @@ eggs/
 .env
 venv/
 env/
+
+# ----------------------------------------
+# F1 Telemetry Cache (fastf1)
+# ----------------------------------------
+backend/driver_profiles/fastf1_cache/
+backend/driver_profiles/fastf1_http_cache.sqlite

@@ -1,6 +1,6 @@
 // src/App.jsx
 import React, { useEffect, useState } from 'react'
-import RaceVisualizer from './components/RaceVisualizer'
+import RaceVisualizer from './components/RaceVisualizer/RaceVisualizer'
 import './styles/globals.css'
 
 function App() {

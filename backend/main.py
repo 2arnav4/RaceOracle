@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 import asyncio
 from typing import Dict, Any, List, Optional
 
@@ -5,8 +9,12 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-from backend.simulation_engine import SimulationEngine
-from backend.monte_carlo import MonteCarloSimulator
+from simulation.simulation_engine import SimulationEngine
+from simulation.controllers.driver_style_controller import DriverStyleController
+from montecarlo.montecarlo import MonteCarloSimulator
+
+
+
 
 app = FastAPI()
 
@@ -25,12 +33,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+# ==== LOAD DRIVER AI PROFILES ==== #
+with open("backend/driver_profiles/driver_profiles.json", "r") as f:
+    DRIVER_PROFILES = json.load(f)
+
+
 # ==== GLOBAL STATE =====
 engine: Optional[SimulationEngine] = None
 _simulation_task: Optional[asyncio.Task] = None
 _latest_state: Optional[Dict[str, Any]] = None
 
-# === TRACK + DEFAULT AGENTS ===
+
+# === TRACK (temporary until we use PNG racing) ===
 TRACK_POINTS = [
     {"x": 100, "y": 100},
     {"x": 400, "y": 80},
@@ -41,11 +56,15 @@ TRACK_POINTS = [
     {"x": 50, "y": 250},
 ]
 
+
+# === BEFORE: Fake personalities
+# === NOW: Real driver codes (matches profiles.json)
 DEFAULT_AGENTS = [
-    {"id": "CAR_1", "color": "#00FFD1", "personality": "aggressive", "controller": "aggressive"},
-    {"id": "CAR_2", "color": "#FF4D4D", "personality": "neutral", "controller": "rule_based"},
-    {"id": "CAR_3", "color": "#FFD700", "personality": "cautious", "controller": "rule_based"},
+    {"id": "VER", "color": "#00FFD1"},
+    {"id": "HAM", "color": "#FF4D4D"},
+    {"id": "LEC", "color": "#FFD700"},
 ]
+
 
 # ==== REQUEST MODELS ====
 class StartSimulationRequest(BaseModel):
@@ -69,6 +88,13 @@ async def start_simulation(req: StartSimulationRequest):
     global engine, _simulation_task, _latest_state
 
     configs = req.agents or DEFAULT_AGENTS
+
+    # Inject REAL controllers
+    for agent in configs:
+        driver_id = agent["id"]
+        controller = DriverStyleController(driver_id, DRIVER_PROFILES[driver_id])
+        agent["controller"] = controller  # override fake values
+
     engine = SimulationEngine(
         track_points=TRACK_POINTS,
         agent_configs=configs,
@@ -76,11 +102,9 @@ async def start_simulation(req: StartSimulationRequest):
         max_laps=req.max_laps,
     )
 
-    # Reset first frame
     _latest_state = engine.reset().to_dict()
 
-    # Stop an old loop if running
-    if _simulation_task is not None:
+    if _simulation_task:
         _simulation_task.cancel()
 
     async def simulation_loop():
@@ -90,8 +114,7 @@ async def start_simulation(req: StartSimulationRequest):
                 await asyncio.sleep(req.tick_dt)
                 if engine is None:
                     break
-                state = engine.step()
-                _latest_state = state.to_dict()
+                _latest_state = engine.step().to_dict()
         except asyncio.CancelledError:
             pass
 
@@ -102,9 +125,7 @@ async def start_simulation(req: StartSimulationRequest):
 
 @app.get("/simulation/state")
 async def simulation_state():
-    if _latest_state is None:
-        return {"status": "no_simulation"}
-    return _latest_state
+    return _latest_state or {"status": "no_simulation"}
 
 
 @app.post("/montecarlo/run")
@@ -120,20 +141,10 @@ async def run_monte_carlo(req: MonteCarloRequest):
 
     result = simulator.run(target_agent_id=req.target_agent_id, runs=req.runs)
 
-    return {
-        "agent_name": result.agent_name,
-        "win_prob": result.win_prob,
-        "margin": result.margin,
-        "ci_low": result.ci_low,
-        "ci_high": result.ci_high,
-        "mean_finish_time": result.mean_finish_time,
-        "ci_time_low": result.ci_time_low,
-        "ci_time_high": result.ci_time_high,
-        "formatted": result.formatted(),
-    }
+    return result.formatted()
 
 
-# Allow local run
+# Local run
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("backend.main:app", host="127.0.0.1", port=8000, reload=True)

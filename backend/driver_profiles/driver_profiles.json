@@ -1,0 +1,182 @@
+{
+  "VER": {
+    "driver_code": "VER",
+    "driver_name": "Max Verstappen",
+    "overall": {
+      "sessions_used": 3,
+      "avg_lap_time_s": 90.92906666666666,
+      "mean_speed": 224.32456703166773,
+      "max_speed": 332.0,
+      "full_throttle_pct": 0.5841419096037519,
+      "heavy_brake_pct": 0.16374536530767933,
+      "coasting_pct": 0.060505939145471095,
+      "aggression_score": 0.7098734561077302,
+      "braking_risk": 0.16374536530767933,
+      "style_tag": "aggressive"
+    },
+    "sessions": [
+      {
+        "session_key": "Unknown Unknown Race",
+        "driver_code": "VER",
+        "laps_used": 10,
+        "avg_lap_time_s": 96.57509999999999,
+        "mean_speed": 200.62931657245267,
+        "max_speed": 308.0,
+        "full_throttle_pct": 0.468944915246346,
+        "heavy_brake_pct": 0.19798382251230034,
+        "coasting_pct": 0.0848913112049176,
+        "aggression_score": 0.6305985894571237,
+        "braking_risk": 0.19798382251230034,
+        "style_tag": "aggressive"
+      },
+      {
+        "session_key": "Unknown Unknown Race",
+        "driver_code": "VER",
+        "laps_used": 10,
+        "avg_lap_time_s": 90.7496,
+        "mean_speed": 230.54888140049917,
+        "max_speed": 301.0,
+        "full_throttle_pct": 0.638494359238717,
+        "heavy_brake_pct": 0.1418555699319966,
+        "coasting_pct": 0.04441996781219848,
+        "aggression_score": 0.7456477840638802,
+        "braking_risk": 0.1418555699319966,
+        "style_tag": "aggressive"
+      },
+      {
+        "session_key": "Unknown Unknown Race",
+        "driver_code": "VER",
+        "laps_used": 10,
+        "avg_lap_time_s": 85.4625,
+        "mean_speed": 241.79550312205143,
+        "max_speed": 332.0,
+        "full_throttle_pct": 0.6449864543261927,
+        "heavy_brake_pct": 0.15139670347874107,
+        "coasting_pct": 0.0522065384192972,
+        "aggression_score": 0.7533739948021868,
+        "braking_risk": 0.15139670347874107,
+        "style_tag": "aggressive"
+      }
+    ]
+  },
+  "HAM": {
+    "driver_code": "HAM",
+    "driver_name": "Lewis Hamilton",
+    "overall": {
+      "sessions_used": 3,
+      "avg_lap_time_s": 91.44479999999999,
+      "mean_speed": 222.69609197650507,
+      "max_speed": 348.0,
+      "full_throttle_pct": 0.5801560939805012,
+      "heavy_brake_pct": 0.17188294830199657,
+      "coasting_pct": 0.038128159536176674,
+      "aggression_score": 0.7136069276000067,
+      "braking_risk": 0.17188294830199657,
+      "style_tag": "aggressive"
+    },
+    "sessions": [
+      {
+        "session_key": "Unknown Unknown Race",
+        "driver_code": "HAM",
+        "laps_used": 10,
+        "avg_lap_time_s": 97.20689999999999,
+        "mean_speed": 198.94539214226398,
+        "max_speed": 331.0,
+        "full_throttle_pct": 0.4865095972593646,
+        "heavy_brake_pct": 0.22326522331416804,
+        "coasting_pct": 0.04235649226476765,
+        "aggression_score": 0.6511208158849574,
+        "braking_risk": 0.22326522331416804,
+        "style_tag": "aggressive"
+      },
+      {
+        "session_key": "Unknown Unknown Race",
+        "driver_code": "HAM",
+        "laps_used": 10,
+        "avg_lap_time_s": 91.1537,
+        "mean_speed": 228.91889930284827,
+        "max_speed": 325.0,
+        "full_throttle_pct": 0.619886386748905,
+        "heavy_brake_pct": 0.14818677967448388,
+        "coasting_pct": 0.025334748898139137,
+        "aggression_score": 0.7410814955552217,
+        "braking_risk": 0.14818677967448388,
+        "style_tag": "aggressive"
+      },
+      {
+        "session_key": "Unknown Unknown Race",
+        "driver_code": "HAM",
+        "laps_used": 10,
+        "avg_lap_time_s": 85.97380000000001,
+        "mean_speed": 240.22398448440305,
+        "max_speed": 348.0,
+        "full_throttle_pct": 0.634072297933234,
+        "heavy_brake_pct": 0.1441968419173379,
+        "coasting_pct": 0.046693237445623224,
+        "aggression_score": 0.7486184713598409,
+        "braking_risk": 0.1441968419173379,
+        "style_tag": "aggressive"
+      }
+    ]
+  },
+  "LEC": {
+    "driver_code": "LEC",
+    "driver_name": "Charles Leclerc",
+    "overall": {
+      "sessions_used": 3,
+      "avg_lap_time_s": 91.65673333333335,
+      "mean_speed": 222.87639721204914,
+      "max_speed": 347.0,
+      "full_throttle_pct": 0.577075295981805,
+      "heavy_brake_pct": 0.1774557054307905,
+      "coasting_pct": 0.028934718167945822,
+      "aggression_score": 0.7149338369114576,
+      "braking_risk": 0.1774557054307905,
+      "style_tag": "very_aggressive"
+    },
+    "sessions": [
+      {
+        "session_key": "Unknown Unknown Race",
+        "driver_code": "LEC",
+        "laps_used": 10,
+        "avg_lap_time_s": 97.59049999999999,
+        "mean_speed": 197.88265634884704,
+        "max_speed": 326.0,
+        "full_throttle_pct": 0.4965063735238984,
+        "heavy_brake_pct": 0.20119952067586916,
+        "coasting_pct": 0.038986847822134095,
+        "aggression_score": 0.6564860150509739,
+        "braking_risk": 0.20119952067586916,
+        "style_tag": "aggressive"
+      },
+      {
+        "session_key": "Unknown Unknown Race",
+        "driver_code": "LEC",
+        "laps_used": 10,
+        "avg_lap_time_s": 91.6889,
+        "mean_speed": 228.33981174173837,
+        "max_speed": 333.0,
+        "full_throttle_pct": 0.5845423803607654,
+        "heavy_brake_pct": 0.16739170703564196,
+        "coasting_pct": 0.027208078352103975,
+        "aggression_score": 0.7224965313667142,
+        "braking_risk": 0.16739170703564196,
+        "style_tag": "very_aggressive"
+      },
+      {
+        "session_key": "Unknown Unknown Race",
+        "driver_code": "LEC",
+        "laps_used": 10,
+        "avg_lap_time_s": 85.69080000000001,
+        "mean_speed": 242.406723545562,
+        "max_speed": 347.0,
+        "full_throttle_pct": 0.650177134060751,
+        "heavy_brake_pct": 0.1637758885808604,
+        "coasting_pct": 0.02060922832959939,
+        "aggression_score": 0.7658189643166847,
+        "braking_risk": 0.1637758885808604,
+        "style_tag": "very_aggressive"
+      }
+    ]
+  }
+}
